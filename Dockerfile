@@ -18,10 +18,10 @@ ADD http://gogs.dn.qbox.me/gogs_v0.4.2_linux_amd64.zip /home/gogs/gogs.zip
 
 RUN chown -R gogs:gogs /home/gogs/*
 
-USER gogs
-ENV HOME /home/gogs
-WORKDIR /home/gogs
-
 RUN unzip gogs.zip
 
-CMD ["/bin/bash"]
+RUN chown -R gogs:gogs /home/gogs
+ADD start.sh /start.sh
+RUN chmod 755 /start.sh
+
+CMD ["/start.sh"]
