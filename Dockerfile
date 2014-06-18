@@ -23,6 +23,8 @@ RUN cd /home/gogs/ ;\
 
 RUN chown -R gogs:gogs /home/gogs
 ADD start.sh /start.sh
-RUN chmod 755 /start.sh
+ADD settings /settings
+RUN chmod 755 /start.sh ;\
+    chmod 755 /settings
 
 CMD ["/start.sh"]
