@@ -17,6 +17,7 @@ func main() {
     root_url := os.Getenv("ROOT_URL")
     mem_type := os.Getenv("MEM_TYPE")
     db_type := os.Getenv("DB_TYPE")
+    ssh_port := os.Getenv("SSH_PORT")
 
     var mem_addr string
     var mem_port string
@@ -51,6 +52,9 @@ func main() {
     // Server
     config.SetValue("server", "DOMAIN", domain)
     config.SetValue("server", "ROOT_URL", root_url)
+    if ssh_port!="" {
+      config.SetValue("server", "SSH_PORT", ssh_port)
+    }
 
       // Database
     config.SetValue("database", "DB_TYPE", db_type)
