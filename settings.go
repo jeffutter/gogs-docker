@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	config,_ := goconfig.LoadConfigFile("/home/gogs/gogs/custom/conf/app.ini")
+  file := os.Args[1]
+	config,_ := goconfig.LoadConfigFile(file)
 
 	app_name := os.Getenv("APP_NAME")
 	domain := os.Getenv("DOMAIN")
@@ -74,5 +75,5 @@ func main() {
 		config.SetValue("session", "PROVIDER", "memory")
 	}
 
-	goconfig.SaveConfigFile(config, "/home/gogs/gogs/custom/conf/app.ini")
+	goconfig.SaveConfigFile(config, file)
 }
