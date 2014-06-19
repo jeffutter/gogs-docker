@@ -21,7 +21,7 @@ RUN chown -R gogs:gogs /home/gogs/*
 RUN cd /home/gogs/ ;\
     unzip gogs.zip ;\
     sed 's#session    optional     pam_motd.so  motd=/run/motd.dynamic noupdate##g' -i /etc/pam.d/sshd ;\
-    sed 's#session    optional     pam_motd.so \# [1]##g' -i /etc/pam.d/sshd
+    sed 's#session    optional     pam_motd.so.*##g' -i /etc/pam.d/sshd
 
 RUN chown -R gogs:gogs /home/gogs
 ADD start.sh /start.sh
