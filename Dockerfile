@@ -10,7 +10,7 @@ RUN echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 RUN dpkg-reconfigure locales
 
 RUN apt-get update
-RUN apt-get -y install unzip git
+RUN apt-get -y install unzip git openssh-server
 
 RUN adduser gogs --home /home/gogs --shell /bin/bash --disabled-password --gecos ""
 
