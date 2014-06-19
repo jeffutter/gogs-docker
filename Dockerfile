@@ -19,7 +19,8 @@ ADD http://gogs.dn.qbox.me/gogs_v0.4.2_linux_amd64.zip /home/gogs/gogs.zip
 RUN chown -R gogs:gogs /home/gogs/*
 
 RUN cd /home/gogs/ ;\
-    unzip gogs.zip
+    unzip gogs.zip ;\
+    touch /home/gogs/.hushlogin
 
 RUN chown -R gogs:gogs /home/gogs
 ADD start.sh /start.sh
