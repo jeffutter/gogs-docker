@@ -37,9 +37,9 @@ func main() {
     if db_type == "mysql" {
       db_addr = os.Getenv("MYSQL_PORT_3306_TCP_ADDR")
       db_port = os.Getenv("MYSQL_PORT_3306_TCP_PORT")
-    } else if db_type == "postgresql" {
-      db_addr = os.Getenv("POSTGRESQL_PORT_5432_TCP_ADDR")
-      db_port = os.Getenv("POSTGRESQL_PORT_5432_TCP_PORT")
+    } else if db_type == "postgres" {
+      db_addr = os.Getenv("POSTGRES_PORT_5432_TCP_ADDR")
+      db_port = os.Getenv("POSTGRES_PORT_5432_TCP_PORT")
     } else if db_type == "sqlite" {
       config.SetValue("database", "PATH", "data/gogs.db")
     } else {
@@ -57,7 +57,7 @@ func main() {
     if db_addr!="" && db_port!="" {
       config.SetValue("database", "HOST", fmt.Sprintf("%s:%s", db_addr, db_port))
     }
-    if db_type == "mysql" || db_type == "postgresql" {
+    if db_type == "mysql" || db_type == "postgres" {
       config.SetValue("database", "NAME", os.Getenv("DB_NAME"))
       config.SetValue("database", "USER", os.Getenv("DB_USER"))
       config.SetValue("database", "PASSWORD", os.Getenv("DB_PASSWORD"))
