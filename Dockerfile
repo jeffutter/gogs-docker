@@ -18,7 +18,7 @@ RUN cd /home/gogs/ ;\
     wget http://gogs.dn.qbox.me/gogs_v0.4.2_linux_amd64.zip -O gogs.zip ;\
     unzip gogs.zip ;\
     rm gogs.zip ;\
-    sed 's#session    optional     pam_motd.so.*##g' -i /etc/pam.d/sshd ;\
+    sed '/pam_loginuid.so/s/^/#/g' -i  /etc/pam.d/* ;\
     chown -R gogs:gogs /home/gogs
 
 ADD start.sh /start.sh
