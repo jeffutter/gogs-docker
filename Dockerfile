@@ -15,7 +15,7 @@ RUN apt-get -y install unzip git openssh-server
 RUN adduser gogs --home /home/gogs --shell /bin/bash --disabled-password --gecos ""
 
 RUN cd /home/gogs/ ;\
-    wget http://gogs.dn.qbox.me/gogs_v0.4.2_linux_amd64.zip -O gogs.zip ;\
+    wget http://gogs.dn.qbox.me/gogs_v0.5.5_linux_amd64.zip -O gogs.zip ;\
     unzip gogs.zip ;\
     rm gogs.zip ;\
     sed '/pam_loginuid.so/s/^/#/g' -i  /etc/pam.d/* ;\
